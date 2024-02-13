@@ -1,7 +1,7 @@
-import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
+import React from 'react';
 
-function NotFoundPage(_: PageProps): JSX.Element {
+function NotFoundPage({}: PageProps): JSX.Element {
   return <>404 page not found</>;
 }
 

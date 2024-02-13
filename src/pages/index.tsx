@@ -1,7 +1,7 @@
-import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
+import React from 'react';
 
-function IndexPage(_: PageProps): JSX.Element {
+function IndexPage({}: PageProps): JSX.Element {
   return <>Hello World</>;
 }
 
