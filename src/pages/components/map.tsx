@@ -1,6 +1,8 @@
 import { Box, Text } from '@chakra-ui/react';
-import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
+import { LngLatBounds, Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
+
+import { trips } from '../../fixtures/trips';
 
 const mapId = 'trips-map';
 
@@ -13,16 +15,66 @@ function Map(): JSX.Element {
 
   useEffect(() => {
     if (initialized) {
+      const positions = trips.flatMap(
+        ({
+          simplifiedGeometry: {
+            geometry: { coordinates },
+          },
+        }) => coordinates.flatMap(([lng, lat]) => ({ lat, lng })),
+      );
+      const bounds = positions.slice(1).reduce(
+        (res, position) => {
+          return res.extend(position);
+        },
+        new LngLatBounds(positions[0], positions[0]),
+      );
+
       const map = new MaplibreMap({
         container: mapId,
         style: 'https://api.maptiler.com/maps/dataviz/style.json?key=86zpcoLHulCFmgXh2OLu',
-        center: [0, 0],
-        zoom: 1,
+        bounds,
+        fitBoundsOptions: { padding: 50 },
         scrollZoom: false,
         pitchWithRotate: false,
       });
 
       map.addControl(new NavigationControl({ showZoom: true }));
+
+      map.on('load', () => {
+        map.addSource('trips', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: trips.map(({ simplifiedGeometry }) => simplifiedGeometry),
+          },
+        });
+
+        map.addLayer(
+          {
+            id: 'trips',
+            type: 'line',
+            source: 'trips',
+            paint: {
+              'line-color': ['get', 'color'],
+              'line-width': 5,
+            },
+          },
+          'Ocean labels',
+        );
+
+        map.addLayer(
+          {
+            id: 'trips-border',
+            type: 'line',
+            source: 'trips',
+            paint: {
+              'line-color': '#fff',
+              'line-width': 9,
+            },
+          },
+          'trips',
+        );
+      });
     }
   }, [initialized]);
 
