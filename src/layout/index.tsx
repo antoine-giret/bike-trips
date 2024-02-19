@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 
@@ -25,6 +25,18 @@ function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
         width="800px"
       >
         {element}
+      </Box>
+      <Box
+        alignItems="center"
+        bgColor="gray.800"
+        display="flex"
+        justifyContent="center"
+        padding={3}
+        width="100%"
+      >
+        <Text color="#fff" fontSize="0.9rem">
+          &copy; Antoine Giret 2024
+        </Text>
       </Box>
     </Box>
   );

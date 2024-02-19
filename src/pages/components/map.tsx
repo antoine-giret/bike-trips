@@ -28,7 +28,7 @@ function Map(): JSX.Element {
 
   return (
     <Box as="figure" width="100%">
-      <Box aspectRatio={1.5} bgColor="lightblue" id={mapId} width="100%" />
+      <Box aspectRatio={1.5} bgColor="#d2e7ea" id={mapId} width="100%" />
       <Box as="figcaption" paddingY={1}>
         <Text color="gray.600" fontSize="0.9rem">
           Carte de nos voyages à vélo
