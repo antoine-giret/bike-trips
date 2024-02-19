@@ -2,7 +2,7 @@
   <img alt="App icon" src="./src/images/icon.svg" height="60" width="60" />
 </p>
 <h1 align="center">
-  Voyages à vélo
+  Nos voyages à vélo
 </h1>
 
 ## 🚀 Quick start
