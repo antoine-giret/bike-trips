@@ -4,6 +4,8 @@ import React from 'react';
 
 import PageBreadcrumb from '../layout/breadcrumb';
 
+import Map from './components/map';
+
 function IndexPage({}: PageProps): JSX.Element {
   return (
     <>
@@ -36,6 +38,7 @@ function IndexPage({}: PageProps): JSX.Element {
           Le plus dur est de choisir laquelle emprunter pour le prochain !
         </Text>
       </Box>
+      <Map />
     </>
   );
 }
@@ -45,7 +48,7 @@ export default IndexPage;
 export const Head: HeadFC = () => {
   return (
     <>
-      <title>Voyages à vélo</title>
+      <title>Nos voyages à vélo</title>
       <meta
         content="Nous avons la chance d'avoir un large réseau de véloroutes en France et en Europe. Découvrez celles que nous avons emprunté lors de nos voyages à vélo."
         name="description"

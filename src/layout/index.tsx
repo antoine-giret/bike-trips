@@ -22,7 +22,7 @@ function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
         marginX="auto"
         maxWidth="calc(100% - 4rem)"
         paddingY={8}
-        width="calc(1000px - 4rem)"
+        width="800px"
       >
         {element}
       </Box>

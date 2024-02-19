@@ -22,6 +22,7 @@
     "gatsby": "5.13.3",
     "gatsby-plugin-manifest": "5.13.1",
     "gatsby-plugin-sitemap": "6.13.1",
+    "maplibre-gl": "4.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1"
