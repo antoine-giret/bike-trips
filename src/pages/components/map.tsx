@@ -45,7 +45,11 @@ function Map(): JSX.Element {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
-            features: trips.map(({ simplifiedGeometry }) => simplifiedGeometry),
+            features: trips.map(({ simplifiedGeometry: { geometry }, color }) => ({
+              type: 'Feature',
+              geometry,
+              properties: { color },
+            })),
           },
         });
 

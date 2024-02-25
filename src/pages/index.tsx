@@ -4,6 +4,7 @@ import React from 'react';
 
 import PageBreadcrumb from '../layout/breadcrumb';
 
+import List from './components/list';
 import Map from './components/map';
 
 function IndexPage({}: PageProps): JSX.Element {
@@ -39,6 +40,7 @@ function IndexPage({}: PageProps): JSX.Element {
         </Text>
       </Box>
       <Map />
+      <List />
     </>
   );
 }
