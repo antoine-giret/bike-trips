@@ -1,4 +1,5 @@
-import { Box, Card, CardBody, Heading, Tag, Text } from '@chakra-ui/react';
+import { Box, Card, CardBody, Heading, LinkBox, LinkOverlay, Tag, Text } from '@chakra-ui/react';
+import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { Fragment } from 'react';
 
@@ -22,15 +23,30 @@ function TripCard({
   }
 
   return (
-    <Card direction={['column', 'column', 'row']} overflow="hidden" variant="outline">
+    <LinkBox
+      _hover={{ backgroundColor: '#fafafa', img: { transform: 'scale(1.1)' } }}
+      as={Card}
+      direction={['column', 'column', 'row']}
+      overflow="hidden"
+      variant="outline"
+    >
       <Box flexShrink={0} height={[300, 300, 'auto']} width={['100%', '100%', 200]}>
-        {image && <GatsbyImage alt={title} image={image} style={{ height: '100%' }} />}
+        {image && (
+          <GatsbyImage
+            alt={title}
+            image={image}
+            imgStyle={{ transition: 'all 0.3s' }}
+            style={{ height: '100%' }}
+          />
+        )}
       </Box>
       <Box flexGrow={1}>
         <CardBody display="flex" flexDirection="column" gap={3} padding={4}>
           <Box display="flex" flexDirection="column">
             <Heading as="h2" fontSize="1.15rem" fontWeight={700}>
-              {title}
+              <LinkOverlay as={Link} to="/">
+                {title}
+              </LinkOverlay>
             </Heading>
             <Text
               color="gray.500"
@@ -65,7 +81,7 @@ function TripCard({
           <Text>{description}</Text>
         </CardBody>
       </Box>
-    </Card>
+    </LinkBox>
   );
 }
 
