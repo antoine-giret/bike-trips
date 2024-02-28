@@ -1,16 +1,26 @@
 import { Box, Card, CardBody, Heading, Tag, Text } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { type TTrip, tripThemesMap } from '../../fixtures/trips/trip';
+import { Trip, tripThemesMap } from '../../fixtures/trips/trip';
 
 function TripCard({
-  trip: { title, steps, themes, description },
+  trip: { title, steps, themes, isLoop, from, to, description },
   image,
 }: {
   image: IGatsbyImageData | undefined;
-  trip: TTrip;
+  trip: Trip;
 }): JSX.Element {
+  const stepsItems: string[] = isLoop ? [`${from} <> ${from}`] : [`${from} > ${to}`];
+  if (steps.length > 0) {
+    stepsItems.push(
+      steps.length > 1 ? `${steps.length} étapes` : '1 étape',
+      `${Math.round(
+        steps.reduce((res, { distance }) => res + distance, 0) / steps.length,
+      )} kms / jour en moyenne`,
+    );
+  }
+
   return (
     <Card direction={['column', 'column', 'row']} overflow="hidden" variant="outline">
       <Box flexShrink={0} height={[300, 300, 'auto']} width={['100%', '100%', 200]}>
@@ -22,18 +32,23 @@ function TripCard({
             <Heading as="h2" fontSize="1.15rem" fontWeight={700}>
               {title}
             </Heading>
-            {steps.length > 0 && (
-              <Text
-                color="gray.500"
-                fontSize="0.9rem"
-                sx={{ '&:first-letter': { textTransform: 'uppercase' } }}
-              >
-                {new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(
-                  steps[0].date,
-                )}{' '}
-                &bull; {steps.length > 1 ? `${steps.length} étapes` : '1 étape'}
-              </Text>
-            )}
+            <Text
+              color="gray.500"
+              fontSize="0.9rem"
+              sx={{ '&:first-letter': { textTransform: 'uppercase' } }}
+            >
+              {new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(
+                steps[0].date,
+              )}
+            </Text>
+            <Text color="gray.500" fontSize="0.9rem">
+              {stepsItems.map((item, index) => (
+                <Fragment key={index}>
+                  {index > 0 && <> &bull; </>}
+                  {item}
+                </Fragment>
+              ))}
+            </Text>
           </Box>
           {themes.length > 0 && (
             <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>

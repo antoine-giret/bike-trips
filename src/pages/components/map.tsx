@@ -15,12 +15,8 @@ function Map(): JSX.Element {
 
   useEffect(() => {
     if (initialized) {
-      const positions = trips.flatMap(
-        ({
-          simplifiedGeometry: {
-            geometry: { coordinates },
-          },
-        }) => coordinates.flatMap(([lng, lat]) => ({ lat, lng })),
+      const positions = trips.flatMap(({ simplifiedGeometry }) =>
+        simplifiedGeometry.coordinates.flatMap(([lng, lat]) => ({ lat, lng })),
       );
       const bounds = positions.slice(1).reduce(
         (res, position) => {
@@ -45,7 +41,7 @@ function Map(): JSX.Element {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
-            features: trips.map(({ simplifiedGeometry: { geometry }, color }) => ({
+            features: trips.map(({ simplifiedGeometry: geometry, color }) => ({
               type: 'Feature',
               geometry,
               properties: { color },

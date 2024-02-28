@@ -3,14 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
 import { trips } from '../../fixtures/trips';
-import { TTrip } from '../../fixtures/trips/trip';
+import { Trip } from '../../fixtures/trips/trip';
 
 import TripCard from './card';
 
 function List(): JSX.Element {
   const [initialized, setInitialized] = useState(false);
   const [sortedBy, sortBy] = useState<'date' | '-date'>('-date');
-  const [sortedTrips, sortTrips] = useState<TTrip[]>(getTrips());
+  const [sortedTrips, sortTrips] = useState<Trip[]>(getTrips());
   const { allFile } = useStaticQuery<Queries.HomeListQuery>(graphql`
     query HomeList {
       allFile {
@@ -32,7 +32,7 @@ function List(): JSX.Element {
     if (initialized) sortTrips(getTrips());
   }, [initialized, sortedBy]);
 
-  function getTrips(): TTrip[] {
+  function getTrips(): Trip[] {
     const _trips = [...trips];
 
     _trips.sort((a, b) => {
