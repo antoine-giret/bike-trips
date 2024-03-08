@@ -2,11 +2,11 @@ import { Box, Text } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
-import { trips } from '../../fixtures/trips';
+import { Trip } from '../../fixtures/trips/trip';
 
-const mapId = 'trips-map';
+const mapId = 'trip-map';
 
-function Map(): JSX.Element {
+function TripMap({ trip: { bounds, title, steps } }: { trip: Trip }): JSX.Element {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
@@ -15,10 +15,6 @@ function Map(): JSX.Element {
 
   useEffect(() => {
     if (initialized) {
-      const bounds = trips.slice(1).reduce((res, { bounds }) => {
-        return res.extend(bounds);
-      }, trips[0].bounds);
-
       const map = new MaplibreMap({
         container: mapId,
         style: 'https://api.maptiler.com/maps/dataviz/style.json?key=86zpcoLHulCFmgXh2OLu',
@@ -35,10 +31,10 @@ function Map(): JSX.Element {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
-            features: trips.map(({ simplifiedGeometry: geometry, color }) => ({
+            features: steps.map(({ simplifiedGeometry }) => ({
               type: 'Feature',
-              geometry,
-              properties: { color },
+              geometry: simplifiedGeometry,
+              properties: {},
             })),
           },
         });
@@ -74,14 +70,14 @@ function Map(): JSX.Element {
 
   return (
     <Box as="figure" width="100%">
-      <Box aspectRatio={1.5} bgColor="#d2e7ea" id={mapId} width="100%" />
+      <Box aspectRatio={2} bgColor="#d2e7ea" id={mapId} width="100%" />
       <Box as="figcaption" paddingY={1}>
         <Text color="gray.600" fontSize="0.9rem">
-          Carte de nos voyages à vélo
+          Itinéraire de l'étape {title}
         </Text>
       </Box>
     </Box>
   );
 }
 
-export default Map;
+export default TripMap;

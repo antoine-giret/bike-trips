@@ -1,27 +1,19 @@
-import { Box, Card, CardBody, Heading, LinkBox, LinkOverlay, Tag, Text } from '@chakra-ui/react';
+import { Box, Card, CardBody, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { Fragment } from 'react';
 
-import { Trip, tripThemesMap } from '../../fixtures/trips/trip';
+import { Trip } from '../../fixtures';
+
+import TripThemes from './themes';
 
 function TripCard({
-  trip: { title, steps, themes, isLoop, from, to, description },
+  trip: { key, coverImageDescription, title, strStartDate, stepsItems, themes, description },
   image,
 }: {
   image: IGatsbyImageData | undefined;
   trip: Trip;
 }): JSX.Element {
-  const stepsItems: string[] = isLoop ? [`${from} <> ${from}`] : [`${from} > ${to}`];
-  if (steps.length > 0) {
-    stepsItems.push(
-      steps.length > 1 ? `${steps.length} étapes` : '1 étape',
-      `${Math.round(
-        steps.reduce((res, { distance }) => res + distance, 0) / steps.length,
-      )} kms / jour en moyenne`,
-    );
-  }
-
   return (
     <LinkBox
       _hover={{ backgroundColor: '#fafafa', img: { transform: 'scale(1.1)' } }}
@@ -33,7 +25,7 @@ function TripCard({
       <Box flexShrink={0} height={[300, 300, 'auto']} width={['100%', '100%', 200]}>
         {image && (
           <GatsbyImage
-            alt={title}
+            alt={coverImageDescription}
             image={image}
             imgStyle={{ transition: 'all 0.3s' }}
             style={{ height: '100%' }}
@@ -44,7 +36,7 @@ function TripCard({
         <CardBody display="flex" flexDirection="column" gap={3} padding={4}>
           <Box display="flex" flexDirection="column">
             <Heading as="h2" fontSize="1.15rem" fontWeight={700}>
-              <LinkOverlay as={Link} to="/">
+              <LinkOverlay as={Link} to={`/${key}`}>
                 {title}
               </LinkOverlay>
             </Heading>
@@ -53,9 +45,7 @@ function TripCard({
               fontSize="0.9rem"
               sx={{ '&:first-letter': { textTransform: 'uppercase' } }}
             >
-              {new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(
-                steps[0].date,
-              )}
+              {strStartDate}
             </Text>
             <Text color="gray.500" fontSize="0.9rem">
               {stepsItems.map((item, index) => (
@@ -66,18 +56,7 @@ function TripCard({
               ))}
             </Text>
           </Box>
-          {themes.length > 0 && (
-            <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>
-              {themes.map((theme) => {
-                const { color, label } = tripThemesMap[theme];
-                return (
-                  <Tag color={color} key={theme}>
-                    {label}
-                  </Tag>
-                );
-              })}
-            </Box>
-          )}
+          <TripThemes themes={themes} />
           <Text>{description}</Text>
         </CardBody>
       </Box>

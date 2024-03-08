@@ -21,7 +21,7 @@ function IndexPage({}: PageProps): JSX.Element {
         <Heading
           as="h1"
           color="green.500"
-          fontSize="1.5rem"
+          fontSize="1.75rem"
           fontWeight={700}
           sx={{ textAlign: ['start', 'start', 'center'] }}
         >
@@ -45,8 +45,6 @@ function IndexPage({}: PageProps): JSX.Element {
   );
 }
 
-export default IndexPage;
-
 export const Head: HeadFC = () => {
   return (
     <>
@@ -58,3 +56,5 @@ export const Head: HeadFC = () => {
     </>
   );
 };
+
+export default IndexPage;

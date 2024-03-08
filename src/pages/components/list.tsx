@@ -2,8 +2,7 @@ import { Box, Button, ButtonGroup, Text } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
-import { trips } from '../../fixtures/trips';
-import { Trip } from '../../fixtures/trips/trip';
+import { Trip, trips } from '../../fixtures';
 
 import TripCard from './card';
 

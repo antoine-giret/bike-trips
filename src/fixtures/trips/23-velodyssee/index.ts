@@ -10,6 +10,7 @@ export const velodyssee23Trip: TTrip = {
   key: 'velodyssee23',
   title: 'La Vélodyssée',
   coverImage: 'trips/23-velodyssee/cover.jpg',
+  coverImageDescription: "Le passage du Gois, entre l'île de Noirmoutier et le continent",
   color: '#f59c00',
   themes: ['nature', 'littoral'],
   from: 'Luçon',
@@ -23,6 +24,20 @@ export const velodyssee23Trip: TTrip = {
       geometry: step1,
       from: 'Luçon',
       to: 'Jard-sur-Mer',
+      photos: [
+        {
+          path: 'trips/23-velodyssee/step-1/PXL_20230526_105648489.jpg',
+          description: 'Notre chargement dans le train avant le départ',
+        },
+        {
+          path: 'trips/23-velodyssee/step-1/PXL_20230526_134730054.jpg',
+          description: 'Une voie verte entre Luçon et Jard-sur-Mer',
+        },
+        {
+          path: 'trips/23-velodyssee/step-1/PXL_20230526_150931600.jpg',
+          description: 'Le port de Saint-Vincent-sur-Jard',
+        },
+      ],
     },
     {
       date: new Date('2023-05-30'),
@@ -30,6 +45,16 @@ export const velodyssee23Trip: TTrip = {
       geometry: step2,
       from: 'Jard-sur-Mer',
       to: 'Saint-Hilaire-de-Riez',
+      photos: [
+        {
+          path: 'trips/23-velodyssee/step-2/PXL_20230530_090827504.jpg',
+          description: "Vue sur l'océan entre Jard-sur-Mer et Saint-Hilaire-de-Riez",
+        },
+        {
+          path: 'trips/23-velodyssee/step-2/PXL_20230530_115021575.jpg',
+          description: 'Plage entre Jard-sur-Mer et Saint-Hilaire-de-Riez',
+        },
+      ],
     },
     {
       date: new Date('2023-05-31'),
@@ -37,6 +62,32 @@ export const velodyssee23Trip: TTrip = {
       geometry: step3,
       from: 'Saint-Hilaire-de-Riez',
       to: 'La Guérinière',
+      photos: [
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_133733012.jpg',
+          description: 'Voie verte dans une forêt entre Saint-Hilaire-de-Riez et la Guérinière',
+        },
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_134247013.jpg',
+          description: "Pont de l'île de Noirmoutier",
+        },
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_135525145.MP.jpg',
+          description: "Traversée du pont de l'île de Noirmoutier",
+        },
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_140338874.jpg',
+          description: "Un oiseau dans les marais sur l'île de Noirmoutier",
+        },
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_141557573.jpg',
+          description: "Passage entre océan et marais l'île de Noirmoutier",
+        },
+        {
+          path: 'trips/23-velodyssee/step-3/PXL_20230531_170126479.jpg',
+          description: "Marais sur l'île de Noirmoutier",
+        },
+      ],
     },
     {
       date: new Date('2023-06-01'),
@@ -44,6 +95,28 @@ export const velodyssee23Trip: TTrip = {
       geometry: step4,
       from: 'La Guérinière',
       to: 'Pornic',
+      photos: [
+        {
+          path: 'trips/23-velodyssee/step-4/PXL_20230601_071221189.MP.jpg',
+          description: 'Traversée du passage du Gois',
+        },
+        {
+          path: 'trips/23-velodyssee/step-4/PXL_20230601_072115328.jpg',
+          description: 'Le passage du Gois',
+        },
+        {
+          path: '/trips/23-velodyssee/step-4/PXL_20230601_084027133.jpg',
+          description: "Un port coloré d'ostréiculteurs",
+        },
+        {
+          path: 'trips/23-velodyssee/step-4/PXL_20230601_121210461.jpg',
+          description: 'Le port de Pornic',
+        },
+        {
+          path: 'trips/23-velodyssee/step-4/PXL_20230601_171121353.jpg',
+          description: 'Une pêcherie près de Pornic',
+        },
+      ],
     },
     {
       date: new Date('2023-06-02'),

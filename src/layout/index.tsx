@@ -8,8 +8,8 @@ function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
       display="flex"
       flexDirection="column"
       sx={{
-        minHeight: 'calc(100vh - 4rem)',
-        '&': { minHeight: 'calc(100dvh - 4rem)' },
+        minHeight: '100vh',
+        '&': { minHeight: '100dvh' },
         overflowX: 'hidden',
       }}
     >
