@@ -1,11 +1,11 @@
 import { Box, Divider, Heading, Text } from '@chakra-ui/react';
-import { PageProps, graphql } from 'gatsby';
+import { type PageProps, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { Fragment, useState } from 'react';
 
+import { TripThemes } from '../../components';
 import { trips } from '../../fixtures';
 import PageBreadcrumb from '../../layout/breadcrumb';
-import TripThemes from '../components/themes';
 
 import TripMap from './map';
 import Step from './step';

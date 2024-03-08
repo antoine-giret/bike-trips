@@ -2,7 +2,7 @@ import { Avatar, Box, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
 
-import { TripStep } from '../../fixtures/trips/trip';
+import { TripStep } from '../../fixtures';
 
 function Step({
   stepIndex,

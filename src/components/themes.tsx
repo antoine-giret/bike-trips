@@ -1,9 +1,9 @@
 import { Box, Tag } from '@chakra-ui/react';
 import React from 'react';
 
-import { TTripTheme, tripThemesMap } from '../../fixtures';
+import { type TTripTheme, tripThemesMap } from '../fixtures';
 
-function TripThemes({ themes }: { themes: TTripTheme[] }): JSX.Element {
+export function TripThemes({ themes }: { themes: TTripTheme[] }): JSX.Element {
   if (themes.length === 0) return <></>;
 
   return (
@@ -19,5 +19,3 @@ function TripThemes({ themes }: { themes: TTripTheme[] }): JSX.Element {
     </Box>
   );
 }
-
-export default TripThemes;

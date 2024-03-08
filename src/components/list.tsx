@@ -2,11 +2,11 @@ import { Box, Button, ButtonGroup, Text } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 
-import { Trip, trips } from '../../fixtures';
+import { Trip, trips } from '../fixtures';
 
-import TripCard from './card';
+import { TripCard } from './card';
 
-function List(): JSX.Element {
+export function TripsList(): JSX.Element {
   const [initialized, setInitialized] = useState(false);
   const [sortedBy, sortBy] = useState<'date' | '-date'>('-date');
   const [sortedTrips, sortTrips] = useState<Trip[]>(getTrips());
@@ -82,5 +82,3 @@ function List(): JSX.Element {
     </Box>
   );
 }
-
-export default List;

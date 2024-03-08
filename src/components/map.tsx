@@ -2,11 +2,11 @@ import { Box, Text } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
-import { trips } from '../../fixtures/trips';
+import { trips } from '../fixtures';
 
 const mapId = 'trips-map';
 
-function Map(): JSX.Element {
+export function TripsMap(): JSX.Element {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
@@ -83,5 +83,3 @@ function Map(): JSX.Element {
     </Box>
   );
 }
-
-export default Map;

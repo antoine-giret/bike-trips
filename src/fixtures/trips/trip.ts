@@ -10,7 +10,7 @@ export const tripThemesMap: { [key in TTripTheme]: { label: string; color: strin
   nature: { label: 'Nature', color: 'green.500' },
 };
 
-export type TTripStep = {
+type TTripStep = {
   date: Date;
   distance: number;
   from: string;
@@ -35,7 +35,6 @@ export class TripStep {
   public readonly date: Date;
   public readonly distance: number;
   public readonly from: string;
-  public readonly geometry: GeoJSON.LineString;
   public readonly isLoop: boolean;
   public readonly photos: Array<{ path: string; description: string }>;
   public readonly simplifiedGeometry: GeoJSON.LineString;
@@ -45,13 +44,12 @@ export class TripStep {
     this.date = date;
     this.distance = distance;
     this.from = from;
-    this.geometry = geometry;
     this.photos = photos || [];
 
     this.isLoop = 'isLoop' in props && props.isLoop;
     this.to = 'to' in props ? props.to : this.from;
 
-    this.simplifiedGeometry = simplify(this.geometry, { tolerance: 0.01, highQuality: false });
+    this.simplifiedGeometry = simplify(geometry, { tolerance: 0.01, highQuality: false });
 
     const positions = this.simplifiedGeometry.coordinates.flatMap(([lng, lat]) => ({ lat, lng }));
     this.bounds = positions.slice(1).reduce(

@@ -3,11 +3,11 @@ import { Link } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { Fragment } from 'react';
 
-import { Trip } from '../../fixtures';
+import { Trip } from '../fixtures';
 
-import TripThemes from './themes';
+import { TripThemes } from './themes';
 
-function TripCard({
+export function TripCard({
   trip: { key, coverImageDescription, title, strStartDate, stepsItems, themes, description },
   image,
 }: {
@@ -63,5 +63,3 @@ function TripCard({
     </LinkBox>
   );
 }
-
-export default TripCard;

@@ -33,7 +33,7 @@ export async function createPages({ actions, graphql }: CreatePagesArgs) {
 
     createPage({
       path: `/${key}`,
-      component: path.resolve(`src/pages/trip/index.tsx`),
+      component: path.resolve(`src/templates/trip/index.tsx`),
       context: {
         tripIndex,
         queryImages: files.length > 0,

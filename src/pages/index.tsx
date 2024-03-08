@@ -2,10 +2,8 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 import type { HeadFC, PageProps } from 'gatsby';
 import React from 'react';
 
+import { TripsList, TripsMap } from '../components';
 import PageBreadcrumb from '../layout/breadcrumb';
-
-import List from './components/list';
-import Map from './components/map';
 
 function IndexPage({}: PageProps): JSX.Element {
   return (
@@ -39,8 +37,8 @@ function IndexPage({}: PageProps): JSX.Element {
           Le plus dur est de choisir laquelle emprunter pour le prochain !
         </Text>
       </Box>
-      <Map />
-      <List />
+      <TripsMap />
+      <TripsList />
     </>
   );
 }

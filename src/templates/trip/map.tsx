@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
-import { Trip } from '../../fixtures/trips/trip';
+import { Trip } from '../../fixtures';
 
 const mapId = 'trip-map';
 
