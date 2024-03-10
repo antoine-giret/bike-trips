@@ -24,6 +24,8 @@ export const velodyssee23Trip: TTrip = {
       geometry: step1,
       from: 'Luçon',
       to: 'Jard-sur-Mer',
+      pros: [],
+      cons: [],
       photos: [
         {
           path: 'trips/23-velodyssee/step-1/PXL_20230526_105648489.jpg',
@@ -45,6 +47,12 @@ export const velodyssee23Trip: TTrip = {
       geometry: step2,
       from: 'Jard-sur-Mer',
       to: 'Saint-Hilaire-de-Riez',
+      pros: [
+        'La traversée des marais salants',
+        'Les chemins traversant des forêts',
+        "Les vues sur l'océan",
+      ],
+      cons: [],
       photos: [
         {
           path: 'trips/23-velodyssee/step-2/PXL_20230530_090827504.jpg',
@@ -62,6 +70,8 @@ export const velodyssee23Trip: TTrip = {
       geometry: step3,
       from: 'Saint-Hilaire-de-Riez',
       to: 'La Guérinière',
+      pros: ["L'ile de Noirmoutier et sa faune, les passages entre océan et marais salants"],
+      cons: ['La ville de Saint-Jean-de-Monts'],
       photos: [
         {
           path: 'trips/23-velodyssee/step-3/PXL_20230531_133733012.jpg',
@@ -95,6 +105,12 @@ export const velodyssee23Trip: TTrip = {
       geometry: step4,
       from: 'La Guérinière',
       to: 'Pornic',
+      pros: [
+        'La traversée du passage du Gois',
+        "Les ports colorés d'ostréiculteurs",
+        'La ville de Pornic et ses pêcheries',
+      ],
+      cons: [],
       photos: [
         {
           path: 'trips/23-velodyssee/step-4/PXL_20230601_071221189.MP.jpg',
@@ -105,7 +121,7 @@ export const velodyssee23Trip: TTrip = {
           description: 'Le passage du Gois',
         },
         {
-          path: '/trips/23-velodyssee/step-4/PXL_20230601_084027133.jpg',
+          path: 'trips/23-velodyssee/step-4/PXL_20230601_084027133.jpg',
           description: "Un port coloré d'ostréiculteurs",
         },
         {
@@ -124,6 +140,8 @@ export const velodyssee23Trip: TTrip = {
       geometry: step5,
       from: 'Pornic',
       to: 'Saint Nazaire',
+      pros: [],
+      cons: ['La traversée du pont de Saint-Nazaire, à proscrire'],
     },
   ],
 };

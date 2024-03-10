@@ -24,6 +24,14 @@ export const lav22Trip: TTrip = {
       date: new Date('2022-06-13'),
       distance: 42.8,
       geometry: step1,
+      pros: [
+        'La ville de Savonnières',
+        'Le château de Villandry et ses jardins',
+        'La confluence du Cher et de la Loire',
+        'Le détour par la Langeais et son pont',
+        "Le château d'Ussé",
+      ],
+      cons: ['La traversée de Tours'],
       photos: [
         {
           path: 'trips/22-lav/step-1/PXL_20220613_091927509.MP.jpg',
@@ -50,6 +58,17 @@ export const lav22Trip: TTrip = {
       date: new Date('2022-06-14'),
       distance: 43.7,
       geometry: step2,
+      pros: [
+        'La confluence de la Vienne et de Loire',
+        'Le village de Candes-Saint-Martin',
+        "Le détour pour voir l'abbaye de Fontevraud",
+        "Le détour sur l'île de Saumur pour admirer la ville et son château",
+        'La vue sur la vallée de la Loire depuis le château',
+      ],
+      cons: [
+        'Le détour pour éviter la centrale de Chinon',
+        'Les montées descentes pas forcément utiles sur les côteaux en arrivant à Saumur',
+      ],
       photos: [
         {
           path: 'trips/22-lav/step-2/PXL_20220614_084617076.jpg',
@@ -79,6 +98,16 @@ export const lav22Trip: TTrip = {
       date: new Date('2022-06-15'),
       distance: 59.8,
       geometry: step3,
+      pros: [
+        'Le détour pour voir le bac à chaîne de Trélazé',
+        "La vue sur le château d'Angers depuis la guinguette",
+      ],
+      cons: [
+        'La sortie de ville de Saumur',
+        'Les longues lignes droites sans ombre au milieu des champs',
+        "Le fait qu'il s'est pas possible de mettre un vélo cargo dans le bac quand le niveau de l'eau est bas",
+        "L'entrée de ville d'Angers par le nord de la Loire",
+      ],
       photos: [
         {
           path: 'trips/22-lav/step-3/PXL_20220615_090819541.jpg',
@@ -100,6 +129,12 @@ export const lav22Trip: TTrip = {
       date: new Date('2022-06-16'),
       distance: 70.2,
       geometry: step4,
+      pros: [
+        "La sortie de ville d'Angers par le parc",
+        'Le détour par le village de Béhuard',
+        "La guinguette d'Ancenis",
+      ],
+      cons: ['Les longues lignes droites au bord des voies de chemin de fer'],
       photos: [
         {
           path: 'trips/22-lav/step-4/PXL_20220616_075321827.jpg',
@@ -121,6 +156,10 @@ export const lav22Trip: TTrip = {
       date: new Date('2022-06-17'),
       distance: 42.8,
       geometry: step5,
+      pros: [
+        "L'arrivée dans Nantes en passant par la tour Lu, le château des ducs de Bretagne et l'île de Nantes",
+      ],
+      cons: ['La traversée de maraîchages  avec arrosages sur la piste'],
       photos: [
         {
           path: 'trips/22-lav/step-5/PXL_20220617_092234575.MP.jpg',

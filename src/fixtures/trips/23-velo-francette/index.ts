@@ -24,6 +24,12 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step1,
       from: 'Chinon',
       to: 'Thouars',
+      pros: ['La traversée des vignes de Chinon'],
+      cons: [
+        "L'itinéraire n'est pas aussi bien fléché que celui de la Loire à Vélo par exemple",
+        "La difficulté de trouver un endroit pour s'arrêter pique-niquer",
+        'La ville de Thouars est un peu désertique',
+      ],
       photos: [
         {
           path: 'trips/23-velo-francette/step-1/PXL_20230520_102916760.jpg',
@@ -45,6 +51,12 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step2,
       from: 'Thouars',
       to: 'Parthenay',
+      pros: [
+        'Le fait de retrouver les mêmes personnes que la veille sur le trajet',
+        'Les voies vertes loin des routes',
+        'La ville de Parthenay',
+      ],
+      cons: [],
       photos: [
         {
           path: 'trips/23-velo-francette/step-2/PXL_20230521_124858869.MP.jpg',
@@ -70,6 +82,8 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step3,
       from: 'Parthenay',
       to: 'Niort',
+      pros: ["L'arrivée sur Niort"],
+      cons: [],
       photos: [
         {
           path: 'trips/23-velo-francette/step-3/PXL_20230522_082022913.jpg',
@@ -87,6 +101,11 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step4,
       from: 'Niort',
       to: 'Marans',
+      pros: [
+        'Le calme de la coulée verte',
+        "Le fait qu'on puisse trouver des lieux pour manger plus facilement",
+      ],
+      cons: ['Quelques ponts difficilement traversables en vélo avec charette'],
       photos: [
         {
           path: 'trips/23-velo-francette/step-4/PXL_20230523_101540418.jpg',
@@ -112,6 +131,8 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step5,
       from: 'Marans',
       to: 'La Rochelle',
+      pros: ["L'arrivée sur le port de La Rochelle"],
+      cons: ['La sortie de Marans', "L'état de la route à certains endroits"],
       photos: [
         {
           path: 'trips/23-velo-francette/step-5/PXL_20230524_085147080.jpg',

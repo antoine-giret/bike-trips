@@ -11,11 +11,13 @@ export const tripThemesMap: { [key in TTripTheme]: { label: string; color: strin
 };
 
 type TTripStep = {
+  cons?: string[];
   date: Date;
   distance: number;
   from: string;
   geometry: GeoJSON.LineString;
   photos?: Array<{ path: string; description: string }>;
+  pros?: string[];
 } & ({ to: string } | { isLoop: boolean });
 
 export type TTrip = {
@@ -32,19 +34,23 @@ export type TTrip = {
 
 export class TripStep {
   public readonly bounds: LngLatBounds;
+  public readonly cons: string[];
   public readonly date: Date;
   public readonly distance: number;
   public readonly from: string;
   public readonly isLoop: boolean;
   public readonly photos: Array<{ path: string; description: string }>;
+  public readonly pros: string[];
   public readonly simplifiedGeometry: GeoJSON.LineString;
   public readonly to: string;
 
-  constructor({ date, distance, from, geometry, photos, ...props }: TTripStep) {
+  constructor({ cons, date, distance, from, geometry, photos, pros, ...props }: TTripStep) {
     this.date = date;
     this.distance = distance;
     this.from = from;
     this.photos = photos || [];
+    this.pros = pros || [];
+    this.cons = cons || [];
 
     this.isLoop = 'isLoop' in props && props.isLoop;
     this.to = 'to' in props ? props.to : this.from;
