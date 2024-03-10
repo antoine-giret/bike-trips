@@ -25,6 +25,7 @@ export function TripsMap(): JSX.Element {
         bounds,
         fitBoundsOptions: { padding: 50 },
         scrollZoom: false,
+        dragPan: false,
         pitchWithRotate: false,
       });
 

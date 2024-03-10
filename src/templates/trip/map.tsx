@@ -21,6 +21,7 @@ function TripMap({ trip: { bounds, title, steps } }: { trip: Trip }): JSX.Elemen
         bounds,
         fitBoundsOptions: { padding: 50 },
         scrollZoom: false,
+        dragPan: false,
         pitchWithRotate: false,
       });
 
