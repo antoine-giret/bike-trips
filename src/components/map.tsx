@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useMediaQuery } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
@@ -8,6 +8,7 @@ const mapId = 'trips-map';
 
 export function TripsMap(): JSX.Element {
   const [initialized, setInitialized] = useState(false);
+  const [isDisplayingInBrowser] = useMediaQuery('(display-mode: browser)');
 
   useEffect(() => {
     setInitialized(true);
@@ -25,7 +26,7 @@ export function TripsMap(): JSX.Element {
         bounds,
         fitBoundsOptions: { padding: 50 },
         scrollZoom: false,
-        dragPan: false,
+        dragPan: isDisplayingInBrowser,
         pitchWithRotate: false,
       });
 

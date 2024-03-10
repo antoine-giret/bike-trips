@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useMediaQuery } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
@@ -8,6 +8,7 @@ const mapId = 'trip-map';
 
 function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX.Element {
   const [initialized, setInitialized] = useState(false);
+  const [isDisplayingInBrowser] = useMediaQuery('(display-mode: browser)');
 
   useEffect(() => {
     setInitialized(true);
@@ -21,14 +22,51 @@ function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX
         bounds,
         fitBoundsOptions: { padding: 50 },
         scrollZoom: false,
-        dragPan: false,
+        dragPan: isDisplayingInBrowser,
         pitchWithRotate: false,
       });
 
       map.addControl(new NavigationControl({ showZoom: true }));
 
       map.on('load', () => {
-        map.addSource('trips', {
+        map.addSource('trip-steps', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features:
+              steps.length > 0
+                ? steps.reduce<GeoJSON.Feature<GeoJSON.Point>[]>(
+                    (res, { simplifiedGeometry }) => {
+                      res.push({
+                        type: 'Feature',
+                        geometry: {
+                          type: 'Point',
+                          coordinates:
+                            simplifiedGeometry.coordinates[
+                              simplifiedGeometry.coordinates.length - 1
+                            ],
+                        },
+                        properties: { color },
+                      });
+
+                      return res;
+                    },
+                    [
+                      {
+                        type: 'Feature',
+                        geometry: {
+                          type: 'Point',
+                          coordinates: steps[0].simplifiedGeometry.coordinates[0],
+                        },
+                        properties: { color },
+                      },
+                    ],
+                  )
+                : [],
+          },
+        });
+
+        map.addSource('trip', {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
@@ -42,12 +80,14 @@ function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX
 
         map.addLayer(
           {
-            id: 'trips',
-            type: 'line',
-            source: 'trips',
+            id: 'trip-steps',
+            type: 'circle',
+            source: 'trip-steps',
             paint: {
-              'line-color': ['get', 'color'],
-              'line-width': 5,
+              'circle-color': ['get', 'color'],
+              'circle-radius': 5,
+              'circle-stroke-width': 2,
+              'circle-stroke-color': '#fff',
             },
           },
           'Ocean labels',
@@ -55,15 +95,28 @@ function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX
 
         map.addLayer(
           {
-            id: 'trips-border',
+            id: 'trip',
             type: 'line',
-            source: 'trips',
+            source: 'trip',
+            paint: {
+              'line-color': ['get', 'color'],
+              'line-width': 5,
+            },
+          },
+          'trip-steps',
+        );
+
+        map.addLayer(
+          {
+            id: 'trip-border',
+            type: 'line',
+            source: 'trip',
             paint: {
               'line-color': '#fff',
               'line-width': 9,
             },
           },
-          'trips',
+          'trip',
         );
       });
     }
