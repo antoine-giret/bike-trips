@@ -6,7 +6,7 @@ import { Trip } from '../../fixtures';
 
 const mapId = 'trip-map';
 
-function TripMap({ trip: { bounds, title, steps } }: { trip: Trip }): JSX.Element {
+function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX.Element {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function TripMap({ trip: { bounds, title, steps } }: { trip: Trip }): JSX.Elemen
             features: steps.map(({ simplifiedGeometry }) => ({
               type: 'Feature',
               geometry: simplifiedGeometry,
-              properties: {},
+              properties: { color },
             })),
           },
         });
