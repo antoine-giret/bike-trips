@@ -1,6 +1,7 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Icon, Link, Text } from '@chakra-ui/react';
 import { WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
+import { IoLogoGithub } from 'react-icons/io5';
 
 function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
   return (
@@ -29,14 +30,26 @@ function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
       <Box
         alignItems="center"
         bgColor="gray.800"
+        color="#fff"
         display="flex"
+        fontSize="0.9rem"
+        gap={3}
         justifyContent="center"
         padding={3}
         width="100%"
       >
-        <Text color="#fff" fontSize="0.9rem">
-          &copy; Antoine Giret 2024
+        <Text>&copy; Antoine Giret 2024</Text>
+        <Text>|</Text>
+        <Text>
+          Créé avec{' '}
+          <Link color="green.500" href="https://www.gatsbyjs.com/" target="_blank">
+            Gatsby
+          </Link>
         </Text>
+        <Text>|</Text>
+        <Link height="16px" href="https://github.com/antoine-giret/bike-trips" target="_blank">
+          <Icon as={IoLogoGithub} boxSize={4} />
+        </Link>
       </Box>
     </Box>
   );
