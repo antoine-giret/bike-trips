@@ -53,7 +53,7 @@ export function TripsList(): JSX.Element {
         gap={[2, 2, 4]}
       >
         <Text color="gray.500">Trier par</Text>
-        <ButtonGroup isAttached size="sm">
+        <ButtonGroup flexWrap="wrap" gap={2} size="sm" spacing={0}>
           <Button
             colorScheme="green"
             onClick={() => sortBy('-date')}
