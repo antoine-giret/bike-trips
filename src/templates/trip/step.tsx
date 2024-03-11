@@ -38,7 +38,7 @@ function Step({
           </Heading>
         </Box>
         <Box display="flex" flexDirection="column" gap={4} paddingLeft="calc(24px + 0.5rem)">
-          <Text color="gray.500" fontSize="0.9rem">
+          <Text color="gray.700" fontSize="0.9rem">
             {distance} kms
           </Text>
         </Box>
@@ -51,7 +51,7 @@ function Step({
       >
         {images.length > 0 && (
           <Box display="flex" flexDirection="column" gap={2}>
-            <Heading as="h4" color="gray.500" fontSize="1rem" fontWeight={700}>
+            <Heading as="h4" color="gray.700" fontSize="1rem" fontWeight={700}>
               Photos
             </Heading>
             <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>

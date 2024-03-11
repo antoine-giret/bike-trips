@@ -41,13 +41,13 @@ export function TripCard({
               </LinkOverlay>
             </Heading>
             <Text
-              color="gray.500"
+              color="gray.700"
               fontSize="0.9rem"
               sx={{ '&:first-letter': { textTransform: 'uppercase' } }}
             >
               {strStartDate}
             </Text>
-            <Text color="gray.500" fontSize="0.9rem">
+            <Text color="gray.700" fontSize="0.9rem">
               {stepsItems.map((item, index) => (
                 <Fragment key={index}>
                   {index > 0 && <> &bull; </>}

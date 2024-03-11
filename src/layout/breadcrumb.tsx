@@ -16,11 +16,17 @@ function PageBreadcrumb({
           Nos voyages à vélo
         </BreadcrumbLink>
       </BreadcrumbItem>
-      {items.map(({ key, isCurrentPage, label }) => (
-        <BreadcrumbItem isCurrentPage={isCurrentPage} key={key}>
-          <BreadcrumbLink>{label}</BreadcrumbLink>
-        </BreadcrumbItem>
-      ))}
+      {items.map(({ key, isCurrentPage, label }) =>
+        isCurrentPage ? (
+          <BreadcrumbItem isCurrentPage key={key}>
+            <BreadcrumbLink>{label}</BreadcrumbLink>
+          </BreadcrumbItem>
+        ) : (
+          <BreadcrumbItem key={key}>
+            <BreadcrumbLink as="span">{label}</BreadcrumbLink>
+          </BreadcrumbItem>
+        ),
+      )}
     </Breadcrumb>
   );
 }

@@ -47,7 +47,12 @@ function Layout({ element }: WrapPageElementBrowserArgs): JSX.Element {
           </Link>
         </Text>
         <Text>|</Text>
-        <Link height="16px" href="https://github.com/antoine-giret/bike-trips" target="_blank">
+        <Link
+          height="16px"
+          href="https://github.com/antoine-giret/bike-trips"
+          target="_blank"
+          title="Github"
+        >
           <Icon as={IoLogoGithub} boxSize={4} />
         </Link>
       </Box>

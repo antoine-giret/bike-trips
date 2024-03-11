@@ -52,7 +52,7 @@ export function TripsList(): JSX.Element {
         flexDirection={['column', 'column', 'row']}
         gap={[2, 2, 4]}
       >
-        <Text color="gray.500">Trier par</Text>
+        <Text color="gray.700">Trier par</Text>
         <ButtonGroup flexWrap="wrap" gap={2} size="sm" spacing={0}>
           <Button
             colorScheme="green"
