@@ -1,4 +1,4 @@
-import { Box, Text, useMediaQuery } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 import React, { useEffect, useState } from 'react';
 
@@ -8,7 +8,9 @@ const mapId = 'trip-map';
 
 function TripMap({ trip: { color, bounds, title, steps } }: { trip: Trip }): JSX.Element {
   const [initialized, setInitialized] = useState(false);
-  const [isDisplayingInBrowser] = useMediaQuery('(display-mode: browser)');
+  const isDisplayingInBrowser =
+    typeof navigator !== 'undefined' &&
+    /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent);
 
   useEffect(() => {
     setInitialized(true);
