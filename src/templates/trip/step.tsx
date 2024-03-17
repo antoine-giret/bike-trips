@@ -1,9 +1,11 @@
-import { Avatar, Box, Heading, Icon, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import { Avatar, Box, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
-import { IoThumbsDown, IoThumbsUp } from 'react-icons/io5';
 
 import { TripStep } from '../../fixtures';
+
+import Cons from './cons';
+import Pros from './pros';
 
 function Step({
   stepIndex,
@@ -74,50 +76,8 @@ function Step({
             </Box>
           </Box>
         )}
-        {pros.length > 0 && (
-          <Box
-            bgColor="green.50"
-            borderRadius={16}
-            display="flex"
-            flexDirection="column"
-            gap={3}
-            padding={6}
-          >
-            <Box alignItems="center" display="flex" gap={2}>
-              <Icon as={IoThumbsUp} boxSize={4} color="green.500" />
-              <Heading as="h4" color="green.500" fontSize="1rem" fontWeight={700}>
-                Ce qu'on a aimé
-              </Heading>
-            </Box>
-            <UnorderedList>
-              {pros.map((item, index) => (
-                <ListItem key={index}>{item}</ListItem>
-              ))}
-            </UnorderedList>
-          </Box>
-        )}
-        {cons.length > 0 && (
-          <Box
-            bgColor="red.50"
-            borderRadius={16}
-            display="flex"
-            flexDirection="column"
-            gap={3}
-            padding={6}
-          >
-            <Box alignItems="center" display="flex" gap={2}>
-              <Icon as={IoThumbsDown} boxSize={4} color="red.500" />
-              <Heading as="h4" color="red.500" fontSize="1rem" fontWeight={700}>
-                Ce qu'on a moins aimé
-              </Heading>
-            </Box>
-            <UnorderedList>
-              {cons.map((item, index) => (
-                <ListItem key={index}>{item}</ListItem>
-              ))}
-            </UnorderedList>
-          </Box>
-        )}
+        <Pros items={pros} />
+        <Cons items={cons} />
       </Box>
     </Box>
   );

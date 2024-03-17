@@ -17,6 +17,14 @@ export const velodyssee23Trip: TTrip = {
   to: 'Saint Nazaire',
   description:
     "Lorsque nous partons en Vendée, nos balades à vélo empruntent souvent une portion de la Vélodyssée. C'est donc tout naturellement que nous avons eu envie de faire un voyage en la suivant plus longuement. Nous somme partis de La Rochelle et avons roulé jusqu'à Saint Nazaire, en passant par l'île de Noirmoutier et son fameux passage du Gois. L'itinéraire quitte de temps à autre le littoral pour traverser des forêts ou les marais salants.",
+  pros: [
+    "Le fait de longer l'océan, pas aussi monotone que l'on pourrait croire, avec la traversée de forêts, de marais, de dunes, de ports.",
+    'La traversée du passage du Gois',
+  ],
+  cons: [
+    'Les villes balnéaires au littoral peu attrayant comme Saint-Jean-de-Monts',
+    'La traversée du pont de Saint-Nazaire, à proscrire.',
+  ],
   steps: [
     {
       date: new Date('2023-05-26'),

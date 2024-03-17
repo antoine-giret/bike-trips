@@ -17,6 +17,15 @@ export const veloFrancette23Trip: TTrip = {
   to: 'La Rochelle',
   description:
     "Pour rejoindre La Rochelle depuis Tours il est possible d'emprunter la Vélo Francette. L'itinéraire est moins bien balisé, plus vallonné et traverse moins de villes que celui de la Loire à Vélo, mais il offre des paysages plus variés. Nous avons particulièrement apprécié la ville de Parthenay et la traversée du Marais Poitevin !",
+  pros: [
+    "L'itinéraire est moins emprunté que la Loire à Vélo par exemple. On retrouve les mêmes personnes d'un jour à l'autre sur le trajet, ça permet de discuter un peu !",
+    'Le calme du Marais Poitevin et sa faune',
+  ],
+  cons: [
+    "Il est normalement interdit d'embarquer dans un train régional avec une charette non pliée. C'est très problématique quand on voyage avec des enfants en bas âge !",
+    "L'itinéraire n'est pas aussi bien fléché que celui de la Loire à Vélo par exemple",
+    "La difficulté pour trouver un endroit où s'arrêter pique-niquer, peu de villes pour s'arrêter domir si on veut faire de plus petites étapes.",
+  ],
   steps: [
     {
       date: new Date('2023-05-20'),
@@ -25,12 +34,7 @@ export const veloFrancette23Trip: TTrip = {
       from: 'Chinon',
       to: 'Thouars',
       pros: ['La traversée des vignes de Chinon'],
-      cons: [
-        "Il est normalement interdit d'embarquer dans un train régional avec une charette non pliée. C'est très problématique quand on voyage avec des enfants en bas âge !",
-        "L'itinéraire n'est pas aussi bien fléché que celui de la Loire à Vélo par exemple",
-        "La difficulté de trouver un endroit pour s'arrêter pique-niquer",
-        'La ville de Thouars est un peu désertique',
-      ],
+      cons: ['La ville de Thouars est un peu désertique'],
       photos: [
         {
           path: 'trips/23-velo-francette/step-1/PXL_20230520_072055163.jpg',
@@ -64,11 +68,7 @@ export const veloFrancette23Trip: TTrip = {
       geometry: step2,
       from: 'Thouars',
       to: 'Parthenay',
-      pros: [
-        'Le fait de retrouver les mêmes personnes que la veille sur le trajet',
-        'Les voies vertes loin des routes',
-        'La ville de Parthenay',
-      ],
+      pros: ['Les voies vertes loin des routes', 'La ville de Parthenay'],
       cons: [],
       photos: [
         {

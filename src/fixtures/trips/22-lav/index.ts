@@ -17,6 +17,17 @@ export const lav22Trip: TTrip = {
   to: 'Nantes',
   description:
     "Pour notre premier voyage nous avons choisi d'emprunter la Loire à vélo depuis Tours jusqu'à Nantes. Elle propose un itinéraire idéal pour débuter. Le tracé est relativement plat et traverse de nombreuses villes où il est possible de s'arrêter manger ou dormir. Nous avions le cargo électrique et notre fille qui n'avait pas encore un an, il ne fallait donc pas de trop grosses étapes. Nous n'avons pas été déçus par le côté sauvage et la Faune qu'offre la Loire, ainsi que par les nombreux châteaux que nous avons pû admirer tout le long du chemin.",
+  pros: [
+    "L'itinéraire est bien fléché.",
+    'La Loire est un fleuve magnifique à suivre.',
+    'Les nombreux châteaux et beaux villages que nous avons pû traverser.',
+    "Il y a beaucoup d'endroits où s'arrêter manger et dormir.",
+  ],
+  cons: [
+    'Beaucoup de sections sont partagées avec les voitures.',
+    "Des détours dénués d'intérêt montant sur les cotaux, les variantes sont des fois mieux que l'itinéraire principal.",
+    "Le fait que le train Loire à Vélo ne circule pas toute l'année et que seulement 2 trains circulent par jour.",
+  ],
   steps: [
     {
       from: 'Tours',
@@ -105,7 +116,7 @@ export const lav22Trip: TTrip = {
       cons: [
         'La sortie de ville de Saumur',
         'Les longues lignes droites sans ombre au milieu des champs',
-        "Le fait qu'il s'est pas possible de mettre un vélo cargo dans le bac quand le niveau de l'eau est bas",
+        "Le fait qu'il n'est pas possible de mettre un vélo cargo dans le bac quand le niveau de l'eau est bas",
         "L'entrée de ville d'Angers par le nord de la Loire",
       ],
       photos: [

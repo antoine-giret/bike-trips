@@ -22,14 +22,16 @@ type TTripStep = {
 
 export type TTrip = {
   color: string;
+  cons?: string[];
   coverImage: string;
   coverImageDescription: string;
   description: string;
   from: string;
   key: string;
-  title: string;
+  pros?: string[];
   steps: TTripStep[];
   themes: TTripTheme[];
+  title: string;
 } & ({ to: string } | { isLoop: boolean });
 
 export class TripStep {
@@ -74,12 +76,14 @@ export class TripStep {
 export class Trip {
   public readonly bounds: LngLatBounds;
   public readonly color: string;
+  public readonly cons: string[];
   public readonly coverImage: string;
   public readonly coverImageDescription: string;
   public readonly description: string;
   public readonly from: string;
   public readonly isLoop: boolean;
   public readonly key: string;
+  public readonly pros: string[];
   public readonly title: string;
   public readonly to: string;
   public readonly simplifiedGeometry: GeoJSON.MultiLineString;
@@ -88,14 +92,16 @@ export class Trip {
 
   constructor({
     color,
+    cons,
     coverImage,
     coverImageDescription,
     description,
     from,
     key,
-    title,
+    pros,
     steps,
     themes,
+    title,
     ...props
   }: TTrip) {
     this.color = color;
@@ -109,6 +115,8 @@ export class Trip {
     this.to = 'to' in props ? props.to : this.from;
     this.steps = steps.map((props) => new TripStep(props));
     this.themes = themes;
+    this.pros = pros || [];
+    this.cons = cons || [];
 
     this.simplifiedGeometry = {
       type: 'MultiLineString',

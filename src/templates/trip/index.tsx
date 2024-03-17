@@ -7,7 +7,9 @@ import { TripThemes } from '../../components';
 import { trips } from '../../fixtures';
 import PageBreadcrumb from '../../layout/breadcrumb';
 
+import Cons from './cons';
 import TripMap from './map';
+import Pros from './pros';
 import Step from './step';
 
 type TTripPageContext = { tripIndex: number };
@@ -31,6 +33,8 @@ function TripPage({
     themes,
     description,
     steps,
+    pros,
+    cons,
   } = trip;
 
   return (
@@ -79,6 +83,8 @@ function TripPage({
             <Box maxWidth="80ch">
               <Text>{description}</Text>
             </Box>
+            <Pros items={pros} />
+            <Cons items={cons} />
           </Box>
         </Box>
         <Box display="flex" flexDirection="column" gap={8}>
