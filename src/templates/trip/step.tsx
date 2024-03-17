@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { TripStep } from '../../fixtures';
 
 import Cons from './cons';
+import PhotoModal from './photo-modal';
 import Pros from './pros';
 
 function Step({
@@ -29,57 +30,73 @@ function Step({
       [],
     ),
   );
+  const [photoModalOpen, togglePhotoModal] = useState(false);
+  const [selectedImageIndex, selectImageIndex] = useState(0);
 
   return (
-    <Box display="flex" flexDirection="column" gap={6}>
-      <Box display="flex" flexDirection="column" gap={1}>
-        <Box alignItems="center" display="flex" flexDirection="row" gap={2}>
-          <Avatar bgColor="green.500" name={`${stepIndex}`} size="xs" />
-          <Heading as="h3" color="green.500" fontSize="1.15rem" fontWeight={700}>
-            {title}
-          </Heading>
-        </Box>
-        <Box display="flex" flexDirection="column" gap={4} paddingLeft="calc(24px + 0.5rem)">
-          <Text color="gray.700" fontSize="0.9rem">
-            {distance} kms
-          </Text>
-        </Box>
-      </Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        gap={6}
-        paddingLeft={[0, 0, 'calc(24px + 0.5rem)']}
-      >
-        {images.length > 0 && (
-          <Box display="flex" flexDirection="column" gap={2}>
-            <Heading as="h4" color="gray.700" fontSize="1rem" fontWeight={700}>
-              Photos
+    <>
+      <Box display="flex" flexDirection="column" gap={6}>
+        <Box display="flex" flexDirection="column" gap={1}>
+          <Box alignItems="center" display="flex" flexDirection="row" gap={2}>
+            <Avatar bgColor="green.500" name={`${stepIndex}`} size="xs" />
+            <Heading as="h3" color="green.500" fontSize="1.15rem" fontWeight={700}>
+              {title}
             </Heading>
-            <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>
-              {images.map(({ image, description }, index) => (
-                <Box
-                  aspectRatio={4 / 3}
-                  borderRadius={16}
-                  key={index}
-                  overflow="hidden"
-                  width={['100%', 'calc((100% - 0.5rem) / 2)', 'calc((100% - 1.5rem) / 4)']}
-                >
-                  <GatsbyImage
-                    alt={description}
-                    image={image}
-                    style={{ height: '100%', width: '100%' }}
-                    title={description}
-                  />
-                </Box>
-              ))}
-            </Box>
           </Box>
-        )}
-        <Pros items={pros} />
-        <Cons items={cons} />
+          <Box display="flex" flexDirection="column" gap={4} paddingLeft="calc(24px + 0.5rem)">
+            <Text color="gray.700" fontSize="0.9rem">
+              {distance} kms
+            </Text>
+          </Box>
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap={6}
+          paddingLeft={[0, 0, 'calc(24px + 0.5rem)']}
+        >
+          {images.length > 0 && (
+            <Box display="flex" flexDirection="column" gap={2}>
+              <Heading as="h4" color="gray.700" fontSize="1rem" fontWeight={700}>
+                Photos
+              </Heading>
+              <Box display="flex" flexDirection="row" flexWrap="wrap" gap={2}>
+                {images.map(({ image, description }, index) => (
+                  <Box
+                    as="button"
+                    aspectRatio={4 / 3}
+                    borderRadius={16}
+                    key={index}
+                    onClick={() => {
+                      selectImageIndex(index);
+                      togglePhotoModal(true);
+                    }}
+                    overflow="hidden"
+                    width={['100%', 'calc((100% - 0.5rem) / 2)', 'calc((100% - 1.5rem) / 4)']}
+                  >
+                    <GatsbyImage
+                      alt={description}
+                      image={image}
+                      style={{ height: '100%', width: '100%' }}
+                      title={description}
+                    />
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
+          <Pros items={pros} />
+          <Cons items={cons} />
+        </Box>
       </Box>
-    </Box>
+      <PhotoModal
+        images={images}
+        open={photoModalOpen}
+        selectedImageIndex={selectedImageIndex}
+        selectImageIndex={selectImageIndex}
+        toggle={(open) => togglePhotoModal(open)}
+      />
+    </>
   );
 }
 
