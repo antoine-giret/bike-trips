@@ -29,6 +29,7 @@ export function TripCard({
             image={image}
             imgStyle={{ transition: 'all 0.3s' }}
             style={{ height: '100%' }}
+            title={coverImageDescription}
           />
         )}
       </Box>

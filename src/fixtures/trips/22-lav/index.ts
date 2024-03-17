@@ -169,6 +169,10 @@ export const lav22Trip: TTrip = {
           path: 'trips/22-lav/step-5/PXL_20220617_100633964.MP.jpg',
           description: 'La cour du château des Ducs de Bretagne à Nantes',
         },
+        {
+          path: 'trips/22-lav/step-5/PXL_20220619_051957410.jpg',
+          description: 'Le bac de Coëron',
+        },
       ],
     },
   ],

@@ -43,7 +43,12 @@ function TripPage({
         <Box as="figure" width="100%">
           <Box aspectRatio={2} borderRadius={16} overflow="hidden" width="100%">
             {coverImage && (
-              <GatsbyImage alt={title} image={coverImage} style={{ height: '100%' }} />
+              <GatsbyImage
+                alt={title}
+                image={coverImage}
+                style={{ height: '100%' }}
+                title={title}
+              />
             )}
           </Box>
           <Box as="figcaption" paddingY={1}>

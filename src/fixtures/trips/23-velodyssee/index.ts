@@ -55,6 +55,10 @@ export const velodyssee23Trip: TTrip = {
       cons: [],
       photos: [
         {
+          path: 'trips/23-velodyssee/step-2/PXL_20230530_083942448.jpg',
+          description: 'La traversé des marais salants',
+        },
+        {
           path: 'trips/23-velodyssee/step-2/PXL_20230530_090827504.jpg',
           description: "Vue sur l'océan entre Jard-sur-Mer et Saint-Hilaire-de-Riez",
         },
@@ -142,6 +146,12 @@ export const velodyssee23Trip: TTrip = {
       to: 'Saint Nazaire',
       pros: [],
       cons: ['La traversée du pont de Saint-Nazaire, à proscrire'],
+      photos: [
+        {
+          path: 'trips/23-velodyssee/step-5/PXL_20230602_093541784.jpg',
+          description: 'Des pêcheries près de Pornic',
+        },
+      ],
     },
   ],
 };
